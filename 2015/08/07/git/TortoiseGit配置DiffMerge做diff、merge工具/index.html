@@ -1,0 +1,553 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>TortoiseGit配置DiffMerge做diff、merge工具 | Skywolf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Zhang Jianun">
+    
+
+    
+    <meta name="description" content="Windows环境下Git和TortoiseGit搭配使用比较多。TortoiseGit大部分功能简洁实用，唯一不爽的是merge解决冲突的时候。TortoiseGit用于diff和merge使用的工具叫TortoiseMerge，其diff功能中规中矩，用起来也挺方便。但其merge功能三方比较解决冲突很不好用，特别是冲突区两边的修改是交错的时候。如下图：
+好在TortoiseGit可以设置外置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TortoiseGit配置DiffMerge做diff、merge工具">
+<meta property="og:url" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/index.html">
+<meta property="og:site_name" content="Skywolf">
+<meta property="og:description" content="Windows环境下Git和TortoiseGit搭配使用比较多。TortoiseGit大部分功能简洁实用，唯一不爽的是merge解决冲突的时候。TortoiseGit用于diff和merge使用的工具叫TortoiseMerge，其diff功能中规中矩，用起来也挺方便。但其merge功能三方比较解决冲突很不好用，特别是冲突区两边的修改是交错的时候。如下图：
+好在TortoiseGit可以设置外置">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图1_TotoiseMerge界面.png">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图2_设置Diff工具.png">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图3_设置Merge工具.png">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图4_Diffmerge统计数据.png">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图5_DiffMege界面.png">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图6_设置RulesSet.png">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图7_设置中文字符编码.png">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图8_SmartGit界面.png">
+<meta property="og:updated_time" content="2015-08-31T12:07:53.519Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TortoiseGit配置DiffMerge做diff、merge工具">
+<meta name="twitter:description" content="Windows环境下Git和TortoiseGit搭配使用比较多。TortoiseGit大部分功能简洁实用，唯一不爽的是merge解决冲突的时候。TortoiseGit用于diff和merge使用的工具叫TortoiseMerge，其diff功能中规中矩，用起来也挺方便。但其merge功能三方比较解决冲突很不好用，特别是冲突区两边的修改是交错的时候。如下图：
+好在TortoiseGit可以设置外置">
+<meta name="twitter:image" content="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图1_TotoiseMerge界面.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Skywolf" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Skywolf" title="Skywolf"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Skywolf">Skywolf</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:skywolf.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/" title="TortoiseGit配置DiffMerge做diff、merge工具" itemprop="url">TortoiseGit配置DiffMerge做diff、merge工具</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhang Jianun" target="_blank" itemprop="author">Zhang Jianun</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-07T14:34:37.000Z" itemprop="datePublished"> 发表于 2015-08-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			
+		
+		</div>
+		
+		<p>Windows环境下Git和TortoiseGit搭配使用比较多。TortoiseGit大部分功能简洁实用，唯一不爽的是merge解决冲突的时候。TortoiseGit用于diff和merge使用的工具叫TortoiseMerge，其diff功能中规中矩，用起来也挺方便。但其merge功能三方比较解决冲突很不好用，特别是冲突区两边的修改是交错的时候。如下图：<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图1_TotoiseMerge界面.png" alt="图1 TotoiseMerge界面.png" title="图1 TotoiseMerge界面.png"></p>
+<p>好在TortoiseGit可以设置外置diff和merge工具。我选的是DiffMerge，因为它是跨平台的，以前在linux用过，懒得换其它的了。<br>设置diff工具如下图所示：<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图2_设置Diff工具.png" alt="图2_设置Diff工具.png" title="图2_设置Diff工具.png"></p>
+<p>其中命令行如下：<br>C:\Program Files\SourceGear\Common\DiffMerge\sgdm.exe %base %mine<br>设置merge工具如下图所示:<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图3_设置Merge工具.png" alt="图3_设置Merge工具.png" title="图3_设置Merge工具.png"></p>
+<p>其中命令行如下：<br>C:\Program Files\SourceGear\Common\DiffMerge\sgdm.exe /merge /result=%merged %mine %base %theirs<br>关于命令行参数，上图设置界面里点帮助就有介绍，还有几种Merge工具的示例，没写DiffMerge的。与differge的帮助文档中相关章节对照一下就可以搞定。喜欢深究的可以去看看文档，DiffMerge的在Command Line Arguments/ Opening a Merge Window章节。<br>DiffMerge的diff功能与TortoiseMerge差不多，不用介绍了，只介绍一下merge功能。在commit窗口双击有冲突的文件时，会打开设置好的DiffMerge，同时弹出一个统计表窗口：<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图4_Diffmerge统计数据.png" alt="图4 Diffmerge统计数据.png" title="图4 Diffmerge统计数据.png"><br>主窗口如下图所示。其中左边LOCAL代表merge之前的工作分支; 右边REMOTE代表merge来源分支; 中间虽然写的是BASE，实际指的是合并的结果。<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图5_DiffMege界面.png" alt="图5 DiffMege界面.png" title="图5 DiffMege界面.png"><br>冲突的地方划成了几个小块，点中一块就会用虚线框起来，点右键可以选择你打算怎么处理。上图的例子，当前小块自动合并时取了右边，可以选择用左边替换(Replace)，左边添加到前面(Prepend)，左边添加到后边(Append)，或者自己复制一段正确的代码粘贴(Paste)到这。再看下面一段红色标记的两边各不相同的，右键菜单也有不同解决方法让你选。<br>DiffMerge里中文可能会显示乱码，点击菜单Tool/Option，设置RuleSets：<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图6_设置RulesSet.png" alt="图6 设置RulesSet.png" title="图6 设置RulesSet.png"><br>选中源代码语言，点Edit，在Character Encodings里选择系统默认，或明确指定所有的编码：<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图7_设置中文字符编码.png" alt="图7_设置中文字符编码.png" title=""><br>其它独立的Merge工具没试过，只要比TortoiseMerge好用就行了。顺便说一句比较喜欢SmartGit的内置Merge功能，如下图：<br><img src="/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/图8_SmartGit界面.png" alt="图8 SmartGit界面.png" title="图8 SmartGit界面.png"><br>那个动态连接线看起来比较酷，操作也比较简单，点击双箭头就可以选择复制或替换的方向。TortoiseGit上手比较简单，SmartGit功能强大，但需要对Git有很多的了解才好上手，各取所需吧。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/git/">git</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/git/">git</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/" data-title="TortoiseGit配置DiffMerge做diff、merge工具 | Skywolf" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/08/10/stm32/测试STM32F4的EVNETOUT/" title="测试STM32F4的EVNETOUT">
+  <strong>上一篇：</strong><br/>
+  <span>
+  测试STM32F4的EVNETOUT</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/07/git/msysGit与Git for Windows的关系及下载地址/"  title="msysGit与Git for Windows的关系及下载地址">
+ <strong>下一篇：</strong><br/> 
+ <span>msysGit与Git for Windows的关系及下载地址
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/" data-title="TortoiseGit配置DiffMerge做diff、merge工具" data-url="http://skywolf.github.io/2015/08/07/git/TortoiseGit配置DiffMerge做diff、merge工具/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/IAR/" title="IAR">IAR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Keil/" title="Keil">Keil<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/STM32/" title="STM32">STM32<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具软件/" title="工具软件">工具软件<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/STM32/" title="STM32">STM32<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/STM32Cube/" title="STM32Cube">STM32Cube<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keil/" title="Keil">Keil<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PLL/" title="PLL">PLL<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/USART/" title="USART">USART<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/IAR/" title="IAR">IAR<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具软件/" title="工具软件">工具软件<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/IAR/" style="font-size: 10px;">IAR</a> <a href="/tags/Keil/" style="font-size: 13.33px;">Keil</a> <a href="/tags/PLL/" style="font-size: 13.33px;">PLL</a> <a href="/tags/STM32/" style="font-size: 20px;">STM32</a> <a href="/tags/STM32Cube/" style="font-size: 16.67px;">STM32Cube</a> <a href="/tags/USART/" style="font-size: 13.33px;">USART</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/工具软件/" style="font-size: 10px;">工具软件</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Zhang Jianun">Zhang Jianun</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"skywolf"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e5bd8ad0ca393e6fc7410d864aa4695";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

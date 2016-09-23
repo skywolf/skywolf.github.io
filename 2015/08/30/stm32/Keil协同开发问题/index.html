@@ -1,0 +1,548 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Keil协同开发存在的问题 | Skywolf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Zhang Jianun">
+    
+
+    
+    <meta name="description" content="Keil不是个团队开发友好的IDE环境。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keil协同开发存在的问题">
+<meta property="og:url" content="http://skywolf.github.io/2015/08/30/stm32/Keil协同开发问题/index.html">
+<meta property="og:site_name" content="Skywolf">
+<meta property="og:description" content="Keil不是个团队开发友好的IDE环境。">
+<meta property="og:image" content="http://skywolf.github.io/2015/08/30/stm32/Keil协同开发问题/uvprojx里的文件目录.png">
+<meta property="og:updated_time" content="2015-08-30T04:05:44.076Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Keil协同开发存在的问题">
+<meta name="twitter:description" content="Keil不是个团队开发友好的IDE环境。">
+<meta name="twitter:image" content="http://skywolf.github.io/2015/08/30/stm32/Keil协同开发问题/uvprojx里的文件目录.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Skywolf" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Skywolf" title="Skywolf"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Skywolf">Skywolf</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:skywolf.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/30/stm32/Keil协同开发问题/" title="Keil协同开发存在的问题" itemprop="url">Keil协同开发存在的问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhang Jianun" target="_blank" itemprop="author">Zhang Jianun</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-30T01:59:30.000Z" itemprop="datePublished"> 发表于 2015-08-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-uvprojx文件与PACK目录相关问题"><span class="toc-number">1.</span> <span class="toc-text">1.uvprojx文件与PACK目录相关问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-个性化设置的问题"><span class="toc-number">2.</span> <span class="toc-text">2.个性化设置的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Keil编辑一个文件，总是自动更改回车换行。"><span class="toc-number">3.</span> <span class="toc-text">3.Keil编辑一个文件，总是自动更改回车换行。</span></a></li></ol>
+		
+		</div>
+		
+		<p>Keil与其它IDE环境相比各有优缺点，但对团队开发来说，Keil的确是短板。其它常用的IDE如IAR，Eclipse，Code Composer Studio，Visual Studio都还好，各有自已的解决方法，大体上安装目录的问题可以用环境变量解决(不管是系统的还是IDE内部的环境变量);个性化设置可以放到单独的文件里等。但Keil从uVsion2起，项目文件组织一直存在这样的问题。Keil5项目文件有了大的变化，但这块仍然没有改观。可以说Keil不是个团队开发友好的IDE环境。有些问题能解决，有些问题搞不定。后来又因为其它原因，放弃使用Keil，改用IAR开发STM32。本文整理了以前发现的问题和部分折腾出来解决方案共享出来。</p>
+<h2 id="1-uvprojx文件与PACK目录相关问题"><a href="#1-uvprojx文件与PACK目录相关问题" class="headerlink" title="1.uvprojx文件与PACK目录相关问题"></a>1.uvprojx文件与PACK目录相关问题</h2><p>Keil5.x引入了PACK来管理函数包，给安装和开发带来一定便利。但uvprojx文件引用Pack里的文件用的是绝对路径，如果团队里Keil安装目录各不相同，那就麻烦了。<br>例如我们团队里，A安装在缺省C:\Keil_v5，B安装在d:\Keil_v5，C安装在C:\EDA\Keil_v5。<br>看一下B的uvprojx文件与A不同的地方：<br><img src="/2015/08/30/stm32/Keil协同开发问题/uvprojx里的文件目录.png" alt="uvprojx里的文件目录.png" title=""><br>每个人的uvprojx这块都不一样，很是烦人。</p>
+<p>尝试自己用环境变量替换PACK的路径不成功。直接改项目文件用环境变量不认；在对话框里修改，保存的还是绝对路径。</p>
+<p>解决方案：<br>方案一：强制所有人的安装到相同的目录。以缺省的C:\Keil_v5为准。管理比较严格的团队可以这样。<br>方案二：对实在不想装到C盘，或者已经安装到其它目录的，可以将其中Pack目录用mklink命令链接到C:\Keil_v5\ARM\PACK，并修改\Keil_v5\TOOLS.INI对应项。<br>以下是批处理命令示例，先建个C:\Keil_v5\ARM空目录，然后建一个软链接PACK到d:\Keil_v5\ARM\PACK：</p>
+<figure class="highlight taggerscript"><figcaption><span>LinkKeil5Pack.cmd</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mkdir C:<span class="symbol">\K</span>eil_v5</div><div class="line">mkdir C:<span class="symbol">\K</span>eil_v5<span class="symbol">\A</span>RM</div><div class="line">mklink /D C:<span class="symbol">\K</span>eil_v5<span class="symbol">\A</span>RM<span class="symbol">\P</span>ACK D:<span class="symbol">\K</span>eil_v5<span class="symbol">\A</span>RM<span class="symbol">\P</span>ACK</div><div class="line">pause</div></pre></td></tr></table></figure>
+<p>Keil_v5实际安装目录下的TOOLS.INI也要相应修改：<br><figure class="highlight taggerscript"><figcaption><span>Keil_v5\TOOLS.INI</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[UV2]</div><div class="line">。。。</div><div class="line">RTEPATH="C:<span class="symbol">\K</span>eil_v5<span class="symbol">\A</span>RM<span class="symbol">\P</span>ACK"</div></pre></td></tr></table></figure></p>
+<p>这样虽然B的PACK目录实际安装在D盘，也可以通过软链接C:\Keil_v5\ARM\PACK访问到，不影响编译。</p>
+<h2 id="2-个性化设置的问题"><a href="#2-个性化设置的问题" class="headerlink" title="2.个性化设置的问题"></a>2.个性化设置的问题</h2><p>keil有时将个性化设置放到uvoptx文件里。有哪些设置以前没有整理，后来不用它了也懒得整理了。试过uvoptx不加入版本库，但当增减项目文件时也会出问题。有时没办法就删掉uvoptx文件让keil自已重建。</p>
+<h2 id="3-Keil编辑一个文件，总是自动更改回车换行。"><a href="#3-Keil编辑一个文件，总是自动更改回车换行。" class="headerlink" title="3.Keil编辑一个文件，总是自动更改回车换行。"></a>3.Keil编辑一个文件，总是自动更改回车换行。</h2><p>文本文件换行有不同的规范，通常有两个符号：CR回车 LF换行，十六进制分别为0D，0A。<br>Windows/Dos CRLF \r\n<br>Linux/Unix LF \n<br>MacOS CR \r<br>我印像中通常的编辑器打开编辑一个文件，要么按照原文件的换行规范处理新的行，要么只碰修改的行，其它行不变。而keil是只要它编辑的文件，换行统一转换成CRLF。<br>如果用git版本管理，可以设置autocrlf为true。详情自行搜索。实际用起来还是有点问题，没仔细折腾。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/STM32/">STM32</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Keil/">Keil</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://skywolf.github.io/2015/08/30/stm32/Keil协同开发问题/" data-title="Keil协同开发存在的问题 | Skywolf" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/09/06/stm32/2015-09-06_STM32CubeMX不支持新版函数库的解决办法/" title="STM32CubeMX不支持新版函数库的解决办法">
+  <strong>上一篇：</strong><br/>
+  <span>
+  STM32CubeMX不支持新版函数库的解决办法</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/08/29/stm32/STM32Cube_FW_F4中HAL_RCC_GetSysClockFreq函数的bug/"  title="STM32Cube_FW_F4中HAL_RCC_GetSysClockFreq()的bug">
+ <strong>下一篇：</strong><br/> 
+ <span>STM32Cube_FW_F4中HAL_RCC_GetSysClockFreq()的bug
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/08/30/stm32/Keil协同开发问题/" data-title="Keil协同开发存在的问题" data-url="http://skywolf.github.io/2015/08/30/stm32/Keil协同开发问题/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-uvprojx文件与PACK目录相关问题"><span class="toc-number">1.</span> <span class="toc-text">1.uvprojx文件与PACK目录相关问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-个性化设置的问题"><span class="toc-number">2.</span> <span class="toc-text">2.个性化设置的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Keil编辑一个文件，总是自动更改回车换行。"><span class="toc-number">3.</span> <span class="toc-text">3.Keil编辑一个文件，总是自动更改回车换行。</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/IAR/" title="IAR">IAR<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Keil/" title="Keil">Keil<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/STM32/" title="STM32">STM32<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/git/" title="git">git<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具软件/" title="工具软件">工具软件<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/STM32/" title="STM32">STM32<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/STM32Cube/" title="STM32Cube">STM32Cube<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Keil/" title="Keil">Keil<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PLL/" title="PLL">PLL<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/USART/" title="USART">USART<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/IAR/" title="IAR">IAR<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/工具软件/" title="工具软件">工具软件<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/IAR/" style="font-size: 10px;">IAR</a> <a href="/tags/Keil/" style="font-size: 13.33px;">Keil</a> <a href="/tags/PLL/" style="font-size: 13.33px;">PLL</a> <a href="/tags/STM32/" style="font-size: 20px;">STM32</a> <a href="/tags/STM32Cube/" style="font-size: 16.67px;">STM32Cube</a> <a href="/tags/USART/" style="font-size: 13.33px;">USART</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/工具软件/" style="font-size: 10px;">工具软件</a>
+    </div>
+  </div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Zhang Jianun">Zhang Jianun</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"skywolf"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1e5bd8ad0ca393e6fc7410d864aa4695";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

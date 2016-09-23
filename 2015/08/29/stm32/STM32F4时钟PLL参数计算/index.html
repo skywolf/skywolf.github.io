@@ -1,0 +1,941 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Excel.Sheet">
+<meta name="Generator" content="Microsoft Excel 14">
+<link rel="File-List" href="STM32F4时钟PLL计算.files/filelist.xml">
+<style id="STM32F4时钟PLL计算_28460_Styles"><!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font528460
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;}
+.xl1528460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6328460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6428460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:yellow;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6528460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:white;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl6628460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6728460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6828460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6928460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	background:#D9D9D9;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7028460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7128460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7228460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:left;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7328460
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-char-type:none;}
+--></style>
+</head>
+
+<body>
+<!--[if !excel]>　　<![endif]-->
+<!--下列信息由 Microsoft Excel 的发布为网页向导生成。-->
+<!--如果同一条目从 Excel 中重新发布，则所有位于 DIV 标记之间的信息均将被替换。-->
+<!----------------------------->
+<!--“从 EXCEL 发布网页”向导开始-->
+<!----------------------------->
+
+<div id="STM32F4时钟PLL计算_28460" align="center" x:publishsource="Excel">
+
+<table border="0" cellpadding="0" cellspacing="0" width="654" style="border-collapse:
+ collapse;table-layout:fixed;width:492pt">
+ <col width="94" style="mso-width-source:userset;mso-width-alt:3008;width:71pt">
+ <col width="72" style="width:54pt">
+ <col width="94" style="mso-width-source:userset;mso-width-alt:3008;width:71pt">
+ <col width="89" style="mso-width-source:userset;mso-width-alt:2848;width:67pt">
+ <col width="104" style="mso-width-source:userset;mso-width-alt:3328;width:78pt">
+ <col width="90" style="mso-width-source:userset;mso-width-alt:2880;width:68pt">
+ <col width="111" style="mso-width-source:userset;mso-width-alt:3552;width:83pt">
+ <tr height="18" style="height:13.5pt">
+  <td colspan="7" height="18" class="xl7028460" width="654" style="height:13.5pt;
+  width:492pt">STM32F4时钟PLL参数计算<span style="mso-spacerun:yes">&nbsp;</span></td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td colspan="7" height="18" class="xl7028460" style="height:13.5pt">V1.1 2015-08-29
+  张建军</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td colspan="7" height="18" class="xl7128460" style="height:13.5pt"></td>
+ </tr>
+ <tr height="252" style="mso-height-source:userset;height:189.0pt">
+  <td colspan="7" height="252" class="xl7228460" width="654" style="height:189.0pt;
+  width:492pt"><span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp;
+  </span>STM32F4的配置有多个HSE、M、N、P多个参数，取值范围较大，排列组合结果就非常庞大了。其实每个参数都有一定限制条件，恰当地选择一定顺序来使用这些条件，可以逐步缩小组合范围，得到真正有效的组合就不多了。最后再在有效范围内选一个最佳结果。<br>
+    <span style="mso-spacerun:yes">&nbsp;&nbsp;&nbsp; </span>本文以SYSCLK固定168M输出为例介绍思路。<br>
+    1.已知PLL的输出是168M。<br>
+    2.首先选择HSE，范围4-26M，这由板子上的晶振决定了，可以当作是确定值。以8M为例。对照下面的表格来看其它的参数。<br>
+    3.由于192&lt;=VCO&lt;=432,P只能是2,VCO只能是336，这下就干掉很多组合了。<br>
+    4.VCO输入范围1-2M，M范围2-63，筛选VCO_IN=HSE/M在1-2之间，这样M可以缩小范围为4-8。<br>
+    5.N可以由VCO/VCO_IN算出，去掉超出范围的（192&lt;=N&lt;=432），只剩下5个值<br>
+   
+  6.最后优化选项：VCO_IN要大一些PLL抖动小。选择VCO_IN最大，也就是N最小的那一项（当然N还必须是整数）。最终结果在下表中用黄色背景突出显示。<br>
+    <br>
+    同样的方法可以得到HSE为10M、12M、16M、24M、25M时的PLL参数。基本可以涵盖常用频率了。</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl1528460" style="height:13.5pt"></td>
+  <td class="xl1528460"></td>
+  <td class="xl1528460"></td>
+  <td class="xl1528460"></td>
+  <td class="xl1528460"></td>
+  <td class="xl1528460"></td>
+  <td class="xl1528460"></td>
+ </tr>
+ <tr class="xl7028460" height="18" style="height:13.5pt">
+  <td height="18" class="xl7328460" style="height:13.5pt">HSE(4-26)</td>
+  <td class="xl7328460" style="border-left:none">M(2-63)</td>
+  <td class="xl7328460" style="border-left:none">VCO_IN(1-2)</td>
+  <td class="xl7328460" style="border-left:none">N(192-432)</td>
+  <td class="xl7328460" style="border-left:none">VCO(192-432)</td>
+  <td class="xl7328460" style="border-left:none">P(2,4,6,8)</td>
+  <td class="xl7328460" style="border-left:none">SYSCLK</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">4</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>168</s></td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6428460" align="right" style="height:13.5pt;border-top:
+  none">8</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">5</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">1.6</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">210</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">6</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.333333333</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">252</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">7</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.142857143</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">294</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6628460" style="height:13.5pt;border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6828460" style="border-top:none">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6528460" align="right" style="height:13.5pt;border-top:
+  none">10</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">5</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>168</s></td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">10</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">6</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.666666667</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">201.6</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">10</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">7</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.428571429</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">235.2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">10</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">268.8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">10</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">9</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.111111111</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">302.4</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6428460" align="right" style="height:13.5pt;border-top:
+  none">10</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">10</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">1</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6628460" style="height:13.5pt;border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6828460" style="border-top:none">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">6</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>168</s></td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6428460" align="right" style="height:13.5pt;border-top:
+  none">12</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">7</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">1.714285714</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">196</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.5</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">224</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">9</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.333333333</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">252</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">10</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">280</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">11</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.090909091</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">308</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6628460" style="height:13.5pt;border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6828460" style="border-top:none">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>168</s></td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6528460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">9</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">1.777777778</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>189</s></td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6528460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6428460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">10</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">1.6</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">210</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">11</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.454545455</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">231</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.333333333</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">252</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">13</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.230769231</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">273</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">14</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.142857143</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">294</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">15</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.066666667</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">315</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6628460" style="height:13.5pt;border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6828460" style="border-top:none">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>168</s></td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">13</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.846153846</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>182</s></td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6428460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">14</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">1.714285714</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">196</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">15</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.6</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">210</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.5</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">224</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">17</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.411764706</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">238</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">18</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.333333333</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">252</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">19</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.263157895</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">266</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">20</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">280</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">21</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.142857143</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">294</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">22</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.090909091</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">308</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">23</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.043478261</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">322</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6628460" style="height:13.5pt;border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6728460" style="border-top:none">　</td>
+  <td class="xl6828460" style="border-top:none">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">13</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.923076923</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>174.72</s></td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">14</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.785714286</td>
+  <td class="xl6928460" align="right" style="border-top:none;border-left:none"><s>188.16</s></td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">15</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.666666667</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">201.6</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">16</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.5625</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">215.04</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">17</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.470588235</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">228.48</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">18</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.388888889</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">241.92</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">19</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.315789474</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">255.36</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">20</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">268.8</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">21</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.19047619</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">282.24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">22</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.136363636</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">295.68</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">23</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.086956522</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">309.12</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6328460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">24</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">1.041666667</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">322.56</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6328460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6428460" align="right" style="height:13.5pt;border-top:
+  none">25</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">25</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">1</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">336</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">2</td>
+  <td class="xl6428460" align="right" style="border-top:none;border-left:none">168</td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height="0" style="display:none">
+  <td width="94" style="width:71pt"></td>
+  <td width="72" style="width:54pt"></td>
+  <td width="94" style="width:71pt"></td>
+  <td width="89" style="width:67pt"></td>
+  <td width="104" style="width:78pt"></td>
+  <td width="90" style="width:68pt"></td>
+  <td width="111" style="width:83pt"></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--“从 EXCEL 发布网页”向导结束-->
+<!----------------------------->
+</body>
+
+</html>
+
+

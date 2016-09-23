@@ -1,0 +1,1037 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="ProgId" content="Excel.Sheet">
+<meta name="Generator" content="Microsoft Excel 14">
+<link rel="File-List" href="STM32波特率计算_filelist.xml">
+<style id="STM32波特率计算_18977_Styles">
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+.font518977
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;}
+.xl1518977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6518977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:right;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6618977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6718977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"\#\,\#\#0_ ";
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6818977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.00_ ";
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl6918977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.000_ ";
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7018977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.000_ ";
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:normal;}
+.xl7118977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"\#\,\#\#0_ ";
+	text-align:right;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7218977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.00_ ";
+	text-align:right;
+	vertical-align:middle;
+	border:.5pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.xl7318977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"\#\,\#\#0_ ";
+	text-align:center;
+	vertical-align:middle;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7418977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7518977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.00_ ";
+	text-align:general;
+	vertical-align:middle;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7618977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.000_ ";
+	text-align:center;
+	vertical-align:middle;
+	background:#00B0F0;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7718977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"\#\,\#\#0_ ";
+	text-align:left;
+	vertical-align:middle;
+	background:#D8E4BC;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7818977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"\#\,\#\#0_ ";
+	text-align:center;
+	vertical-align:middle;
+	background:#D8E4BC;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl7918977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:middle;
+	background:#D8E4BC;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl8018977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.00_ ";
+	text-align:general;
+	vertical-align:middle;
+	background:#D8E4BC;
+	mso-pattern:black none;
+	white-space:nowrap;}
+.xl8118977
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-number-format:"0\.000_ ";
+	text-align:center;
+	vertical-align:middle;
+	background:#D8E4BC;
+	mso-pattern:black none;
+	white-space:nowrap;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:宋体;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-char-type:none;}
+-->
+</style>
+</head>
+
+<body>
+<!--[if !excel]>　　<![endif]-->
+<!--下列信息由 Microsoft Excel 的发布为网页向导生成。-->
+<!--如果同一条目从 Excel 中重新发布，则所有位于 DIV 标记之间的信息均将被替换。-->
+<!----------------------------->
+<!--“从 EXCEL 发布网页”向导开始-->
+<!----------------------------->
+
+<div id="STM32波特率计算_18977" align="center" x:publishsource="Excel">
+
+<table border="0" cellpadding="0" cellspacing="0" width="753" style="border-collapse:
+ collapse;table-layout:fixed;width:567pt">
+ <col width="98" span="2" style="mso-width-source:userset;mso-width-alt:3136;
+ width:74pt">
+ <col width="72" style="width:54pt">
+ <col width="96" style="mso-width-source:userset;mso-width-alt:3072;width:72pt">
+ <col width="108" style="mso-width-source:userset;mso-width-alt:3456;width:81pt">
+ <col width="106" style="mso-width-source:userset;mso-width-alt:3392;width:80pt">
+ <col width="81" style="mso-width-source:userset;mso-width-alt:2592;width:61pt">
+ <col width="94" style="mso-width-source:userset;mso-width-alt:3008;width:71pt">
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7318977" width="98" style="height:13.5pt;width:74pt">PCLK(Hz)</td>
+  <td class="xl7318977" width="98" style="width:74pt">36,000,000 </td>
+  <td class="xl7418977" width="72" style="width:54pt">　</td>
+  <td class="xl7418977" width="96" style="width:72pt">　</td>
+  <td class="xl7418977" width="108" style="width:81pt">　</td>
+  <td class="xl7518977" width="106" style="width:80pt">　</td>
+  <td class="xl7518977" width="81" style="width:61pt">　</td>
+  <td class="xl7618977" width="94" style="width:71pt">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7718977" colspan="4" style="height:13.5pt">16倍采样波特率计算
+  BRR=(PCLK+Baud/2)/Baud</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6718977" style="height:13.5pt">波特率设定</td>
+  <td class="xl6618977" style="border-left:none">分频比&gt;=1</td>
+  <td class="xl6618977" style="border-left:none">计算结果</td>
+  <td class="xl6618977" style="border-left:none">实际分频比</td>
+  <td class="xl6618977" style="border-left:none">寄存器值(HEX)</td>
+  <td class="xl6818977" style="border-left:none">实际波特率</td>
+  <td class="xl6818977" style="border-left:none">误差</td>
+  <td class="xl6918977" style="border-left:none">误差百分比</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">9,600 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">234.375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">3750</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">234.375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">EA6</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">9600.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">19,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">117.1875</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1875</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">117.1875</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">753</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">19200.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">38,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">58.59375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">938</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">58.625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">3AA</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">38379.53 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-20.47 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.053 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">115,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">19.53125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">313</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">19.5625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">139</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">115015.97 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-184.03 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">230,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">9.765625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">156</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">9.75</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">9C</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">230769.23 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">369.23 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">1,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">2.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">36</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">2.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">24</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">1000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">2,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">18</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">12</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">2000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7718977" colspan="4" style="height:13.5pt">8倍采样波特率计算
+  (PCLK+Baud/2)/Baud</td>
+  <td class="xl7918977">　</td>
+  <td class="xl8018977">　</td>
+  <td class="xl8018977">　</td>
+  <td class="xl8118977">　</td>
+ </tr>
+ <tr height="36" style="height:27.0pt">
+  <td height="36" class="xl6718977" style="height:27.0pt">波特率设定</td>
+  <td class="xl6618977" style="border-left:none">分频比&gt;=1</td>
+  <td class="xl6618977" style="border-left:none">计算结果</td>
+  <td class="xl6618977" style="border-left:none">实际分频比</td>
+  <td class="xl6618977" style="border-left:none">寄存器值(HEX)</td>
+  <td class="xl6818977" style="border-left:none">实际波特率</td>
+  <td class="xl6818977" style="border-left:none">波特率误差</td>
+  <td class="xl7018977" width="94" style="border-left:none;width:71pt">误差百分比</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">9,600 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">468.75</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">3750</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">468.75</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1D46</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">9600.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">19,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">234.375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1875</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">234.375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">EA3</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">19200.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">38,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">117.1875</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">938</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">117.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">752</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">38379.53 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-20.47 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.053 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">115,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">39.0625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">313</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">39.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">271</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">115015.97 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-184.03 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">230,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">19.53125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">156</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">19.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">134</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">230769.23 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">369.23 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">1,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">36</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">44</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">1000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">2,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">2.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">18</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">2.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">22</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">2000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl1518977" style="height:13.5pt"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7318977" style="height:13.5pt">PCLK(Hz)</td>
+  <td class="xl7318977">12,000,000 </td>
+  <td class="xl7418977">　</td>
+  <td class="xl7418977">　</td>
+  <td class="xl7418977">　</td>
+  <td class="xl7518977">　</td>
+  <td class="xl7518977">　</td>
+  <td class="xl7618977">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7718977" colspan="4" style="height:13.5pt">16倍采样波特率计算
+  BRR=(PCLK+Baud/2)/Baud</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6718977" style="height:13.5pt">波特率设定</td>
+  <td class="xl6618977" style="border-left:none">分频比&gt;=1</td>
+  <td class="xl6618977" style="border-left:none">计算结果</td>
+  <td class="xl6618977" style="border-left:none">实际分频比</td>
+  <td class="xl6618977" style="border-left:none">寄存器值(HEX)</td>
+  <td class="xl6818977" style="border-left:none">实际波特率</td>
+  <td class="xl6818977" style="border-left:none">误差</td>
+  <td class="xl6918977" style="border-left:none">误差百分比</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">9,600 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">78.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1250</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">78.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4E2</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">9600.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">19,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">39.0625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">39.0625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">271</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">19200.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">38,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">19.53125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">313</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">19.5625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">139</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">38338.66 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-61.34 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">115,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6.510416667</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">104</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">68</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">115384.62 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">184.62 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">230,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">3.255208333</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">52</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">3.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">34</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">230769.23 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">369.23 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">1,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none;font-size:11.0pt;
+  color:black;font-weight:400;text-decoration:line-through;text-underline-style:
+  none;text-line-through:single;font-family:宋体;border:.5pt solid windowtext;
+  background:#BFBFBF;mso-pattern:black none">0.75</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">12</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">0.75</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">C</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">1000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">2,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none;font-size:11.0pt;
+  color:black;font-weight:400;text-decoration:line-through;text-underline-style:
+  none;text-line-through:single;font-family:宋体;border:.5pt solid windowtext;
+  background:#BFBFBF;mso-pattern:black none">0.375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">0.375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">2000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7718977" colspan="4" style="height:13.5pt">8倍采样波特率计算
+  (PCLK+Baud/2)/Baud</td>
+  <td class="xl7918977">　</td>
+  <td class="xl8018977">　</td>
+  <td class="xl8018977">　</td>
+  <td class="xl8118977">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6718977" style="height:13.5pt">波特率设定</td>
+  <td class="xl6618977" style="border-left:none">分频比&gt;=1</td>
+  <td class="xl6618977" style="border-left:none">计算结果</td>
+  <td class="xl6618977" style="border-left:none">实际分频比</td>
+  <td class="xl6618977" style="border-left:none">寄存器值(HEX)</td>
+  <td class="xl6818977" style="border-left:none">实际波特率</td>
+  <td class="xl6818977" style="border-left:none">波特率误差</td>
+  <td class="xl7018977" width="94" style="border-left:none;width:71pt">误差百分比</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">9,600 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">156.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1250</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">156.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">9C2</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">9600.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">19,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">78.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">78.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4E1</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">19200.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">38,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">39.0625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">313</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">39.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">271</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">38338.66 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-61.34 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">115,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">13.02083333</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">104</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">13</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">D0</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">115384.62 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">184.62 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">230,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6.510416667</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">52</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">64</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">230769.23 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">369.23 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">1,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">12</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">14</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">1000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">2,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none;font-size:11.0pt;
+  color:black;font-weight:400;text-decoration:line-through;text-underline-style:
+  none;text-line-through:single;font-family:宋体;border:.5pt solid windowtext;
+  background:#BFBFBF;mso-pattern:black none">0.75</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">0.75</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">6</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">2000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl1518977" style="height:13.5pt"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+  <td class="xl1518977"></td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7318977" style="height:13.5pt">PCLK(Hz)</td>
+  <td class="xl7318977">8,000,000 </td>
+  <td class="xl7418977">　</td>
+  <td class="xl7418977">　</td>
+  <td class="xl7418977">　</td>
+  <td class="xl7518977">　</td>
+  <td class="xl7518977">　</td>
+  <td class="xl7618977">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7718977" colspan="4" style="height:13.5pt">16倍采样波特率计算
+  BRR=(PCLK+Baud/2)/Baud</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+  <td class="xl7818977">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6718977" style="height:13.5pt">波特率设定</td>
+  <td class="xl6618977" style="border-left:none">分频比&gt;=1</td>
+  <td class="xl6618977" style="border-left:none">计算结果</td>
+  <td class="xl6618977" style="border-left:none">实际分频比</td>
+  <td class="xl6618977" style="border-left:none">寄存器值(HEX)</td>
+  <td class="xl6818977" style="border-left:none">实际波特率</td>
+  <td class="xl6818977" style="border-left:none">误差</td>
+  <td class="xl6918977" style="border-left:none">误差百分比</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">9,600 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">52.08333333</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">833</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">52.0625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">341</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">9603.84 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">3.84 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.040 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">19,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">26.04166667</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">417</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">26.0625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1A1</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">19184.65 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-15.35 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.080 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">38,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">13.02083333</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">208</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">13</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">D0</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">38461.54 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">61.54 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">115,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4.340277778</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">69</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4.3125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">45</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">115942.03 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">742.03 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.644 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">230,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">2.170138889</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">35</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">2.1875</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">23</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">228571.43 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-1828.57 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.794 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">1,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none;font-size:11.0pt;
+  color:black;font-weight:400;text-decoration:line-through;text-underline-style:
+  none;text-line-through:single;font-family:宋体;border:.5pt solid windowtext;
+  background:#BFBFBF;mso-pattern:black none">0.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">8</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">0.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">8</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">1000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">2,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none;font-size:11.0pt;
+  color:black;font-weight:400;text-decoration:line-through;text-underline-style:
+  none;text-line-through:single;font-family:宋体;border:.5pt solid windowtext;
+  background:#BFBFBF;mso-pattern:black none">0.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">0.25</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">2000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7718977" colspan="4" style="height:13.5pt">8倍采样波特率计算
+  (PCLK+Baud/2)/Baud</td>
+  <td class="xl7918977">　</td>
+  <td class="xl8018977">　</td>
+  <td class="xl8018977">　</td>
+  <td class="xl8118977">　</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl6718977" style="height:13.5pt">波特率设定</td>
+  <td class="xl6618977" style="border-left:none">分频比&gt;=1</td>
+  <td class="xl6618977" style="border-left:none">计算结果</td>
+  <td class="xl6618977" style="border-left:none">实际分频比</td>
+  <td class="xl6618977" style="border-left:none">寄存器值(HEX)</td>
+  <td class="xl6818977" style="border-left:none">实际波特率</td>
+  <td class="xl6818977" style="border-left:none">波特率误差</td>
+  <td class="xl7018977" width="94" style="border-left:none;width:71pt">误差百分比</td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">9,600 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">104.1666667</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">833</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">104.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">681</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">9603.84 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">3.84 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.040 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">19,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">52.08333333</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">417</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">52.125</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">341</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">19184.65 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-15.35 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.080 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">38,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">26.04166667</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">208</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">26</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1A0</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">38461.54 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">61.54 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.160 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">115,200 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">8.680555556</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">69</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">8.625</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">85</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">115942.03 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">742.03 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.644 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">230,400 </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4.340277778</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">35</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4.375</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">43</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">228571.43 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">-1828.57 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">-0.794 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">1,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">8</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">1</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">10</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">1000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <tr height="18" style="height:13.5pt">
+  <td height="18" class="xl7118977" style="height:13.5pt;border-top:none">2,000,000
+  </td>
+  <td class="xl6518977" style="border-top:none;border-left:none;font-size:11.0pt;
+  color:black;font-weight:400;text-decoration:line-through;text-underline-style:
+  none;text-line-through:single;font-family:宋体;border:.5pt solid windowtext;
+  background:#BFBFBF;mso-pattern:black none">0.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">0.5</td>
+  <td class="xl6518977" style="border-top:none;border-left:none">4</td>
+  <td class="xl7218977" style="border-top:none;border-left:none">2000000.00 </td>
+  <td class="xl7218977" style="border-top:none;border-left:none">0.00 </td>
+  <td class="xl6918977" style="border-top:none;border-left:none">0.000 </td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height="0" style="display:none">
+  <td width="98" style="width:74pt"></td>
+  <td width="98" style="width:74pt"></td>
+  <td width="72" style="width:54pt"></td>
+  <td width="96" style="width:72pt"></td>
+  <td width="108" style="width:81pt"></td>
+  <td width="106" style="width:80pt"></td>
+  <td width="81" style="width:61pt"></td>
+  <td width="94" style="width:71pt"></td>
+ </tr>
+ <![endif]>
+</table>
+
+</div>
+
+
+<!----------------------------->
+<!--“从 EXCEL 发布网页”向导结束-->
+<!----------------------------->
+</body>
+
+</html>
